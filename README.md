@@ -97,14 +97,54 @@ In progress.
 ### Lecture: Going Beyond
 
 - Week 1: March 27th and 29th
-  - Links:
-  - Code:
+  - Takeaway:
+    - Install Android Studio (3.0 or above), Android 4.0 (Kitkat) for SDK, and an emulator of choice
+    - Windows user and looking for a way to connect your Android phone to Android Studio? Install [OEM driver](https://developer.android.com/studio/run/oem-usb.html).
 - Week 2: April 3rd and 5th
   - Links:
-  - Code:
-- Week 3: April 10th and 12th
-  - Links:
-  - Code:
+    - Callicoders - [Kotlin's Inheritance](https://www.callicoder.com/kotlin-inheritance/)
+    - Callicoders - [Kotlin's Classes, Objects, Constructors, Initializers](https://www.callicoder.com/kotlin-classes-objects-constructors-initializers/)
+- Week 3:
+  - April 10th
+    - Activity Lifecycle: [Link](http://developer.android.com/guide/components/activities.html)
+    - `log`, its levels, and the `logcat`
+    - How toasts are created and used
+    - How notification works and are programmed
+    - Making alerts!
+  - April 12th
+    - Android Example - [Layout examples](https://androidexample.com/LAYOUTS/index.php?view=examplecloud&scat=11)
+    - Tutorials Point - [User Interface Layouts](https://www.tutorialspoint.com/android/android_user_interface_layouts.htm)
+    - Best practices when it comes to [organizing XML files](https://github.com/futurice/android-best-practices#resources)
+    - Try this! Udacity's [Android Visualizer](https://labs.udacity.com/android-visualizer/#/android/sandbox)
+    - [Advance `findViewById`](https://medium.com/@quiro91/improving-findviewbyid-with-kotlin-4cf2f8f779bb) thanks to Kotlin
+- Week 4:
+  - April 17th
+    - Model-View-Controller (Basic architecture we're asking you to based your structure on): [Android Architectural Pattern 1](https://medium.com/upday-devs/android-architecture-patterns-part-1-model-view-controller-3baecef5f2b6)
+    - Advance MVC - [List of Common Patterns](https://www.raywenderlich.com/168038/common-design-patterns-android-kotlin)
+    - MVC Siblings (MVP, MVVM, etc.): [A thorough analysis of their differences](https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/)
+  - April 19th
+    - [Implementing `TabHost` in Android](https://www.viralandroid.com/2015/09/simple-android-tabhost-and-tabwidget-example.html)
+    - ListView and GridView:
+      - These require you to implement `Adapters` and `AdapterView` for them to function properly.
+      - In easy terms, think of an **Adapter** is the person that works behind the scenes to tell the ListView what to display and what data to fetch. The **AdapterView** is the Adapter’s boss. So the hierarchy goes like this: `ListView` <- `AdapterView` <- `Adapter` <- `Data` !
+    - RecyclerView is also fundamental! But, it comes with a steep learning curve.
+- Week 5:
+  - April 24th
+    - [Intents](https://developer.android.com/reference/android/content/Intent.html)
+    - [Dialogs](https://developer.android.com/guide/topics/ui/dialogs.html)
+      - An `AlertDialog` has been the fundamental way to creating dialogs for many years.
+      - But you can also implement a Custom `Dialog` class (but this involves using `Fragments` at some point)
+    - Fragments - [Official documentation](https://developer.android.com/guide/components/fragments.html)
+      - Source of GitHub repo that Ted uses to teach Fragment: [CW-Omnibus - Dynamic Fragment Demo](https://github.com/commonsguy/cw-omnibus/tree/master/Fragments/Dynamic)
+      - Make sure to understand its lifecycle (yes it closely resembles an Activity's lifecycle too!)
+      - Two things you need to create fragments are:
+        - XML for its layout AND a class that implements `Fragment`
+      - Understand the [Performing Fragment](https://developer.android.com/guide/components/fragments.html#Transactions) Transactions section from the documentation
+      - Examples & Tutorials:
+        - [Kotlin's Simple Fragment Example](https://github.com/kmvignesh/Fragment)
+        - Beyond scope of this class - [Implementing a Custom `FragmentManager` to reduce errors when dealing with fragment transaction](https://medium.com/thoughts-overflow/how-to-add-a-fragment-in-kotlin-way-73203c5a450b)
+        - [Step-by-step tutorial for creating fragments](https://www.techotopia.com/index.php/An_Introduction_to_Kotlin_Android_Fragments)
+        - [Using Fragments in Android](https://www.techotopia.com/index.php/Using_Fragments_in_Android_Studio_-_A_Kotlin_Example) - The example involves creating and using a Tab bar, which is not what we have taught you yet.
 
 ---
 
@@ -137,18 +177,58 @@ Aside from external links that you might be finding useful to help you tackle th
   - Enumerators: [Enum Classes - Kotlin](https://kotlinlang.org/docs/reference/enum-classes.html)
   - `.invoke()` function: [Invoke - Kotlin](https://kotlinlang.org/docs/reference/operator-overloading.html#invoke)
   - Stackoverflow - [Why .fold() and why not .reduce()?](https://stackoverflow.com/questions/44429419/what-is-basic-difference-between-fold-and-reduce-in-kotlin-when-to-use-which)
-- Homework 4:
+- Homework 4: **Activity Spy**
+  - [Android's `Log`](https://developer.android.com/reference/android/util/Log.html)
+    - Make sure you know how the `Log` is called and used.
+  - [Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle.html)
+    - Make sure you have a sense of how each event, namely `onCreate`, `onStop`, and particularly `onDestroy`, is triggered. The assignment asks that the `onDestroy` event is triggered and that this event is produced in the log file.
+  - [Debugging `LogCat`](http://developer.android.com/tools/debugging/debugging-log.html)
+    - Commands:
+      - `adb logcat`: Runs logcat
+      - `adb logcat -f file`: Writes to file
+- Homework 5: **Tip Calculator** (Due April 17)
+  - Make sure you know how to parse a `String` into a `Double`
+  - `findViewById<T>(R.id.name_of_object) as T` in important part to remember!
+  - Kotlin's `onClickListener` is different from that of Java. Make sure that the syntax is right!
+- Homework 6: **Life Counter** (Due April 19)
+  - Make sure you understand how each layout in Android works in order to "equally balanced" the app on each device.
+  - A good approach for solving orientation issues is to use [Constraint Layout](https://developer.android.com/training/constraint-layout/index.html)!
+  - There are lots of ways to solve the layout issue. You can, if you want to, nest Linear Layouts inside a Relative Layout that is acting as a parent element. Whatever you choose, make sure it fits the design that you're trying to achieve.
+- Homework 7-10 (QuizDroid):
+  - Intent:
+    - `Intents` are used to go from one Activity to another and they also allow you to pass data in the process.
+    - Many ways are available for you to pass an object (`String`, `ArrayList`, and etc.) to another Activity!
+  - Fragments:
+    - Learn more about them before diving into the code itself. Lots of resources are provided (see the [Lecture: Going Beyond](#lecture-going-beyond) section)
+    - See section's slide on Apr 25th (Week 5) to learn more about Fragments.
 
 ---
 
 ### Lab Meetings
 
 - Week 1: March 28th
-  - Slides:
+  - Slides: [Week 1](https://slides.com/naruthkongurai/info448-android-w1)
+  - Main Takeaway:
+    - Introduction to section
+    - Getting to know each other
+    - How each section meeting will be run
 - Week 2: April 4th
-  - Slides:
-- Week 3: April 11th
-  - Slides
+  - Slides: [Week 2](https://slides.com/naruthkongurai/info448-android-w2)
+  - Main Takeaway:
+    - Genymotion and Vysor
+    - Kotlin Syntax and Functions
+- Week 3: April 11th (Cancelled)
+- Week 4: April 18th
+  - Slides: [Week 4](http://slides.com/naruthkongurai/info448-android-w4)
+  - Main Takeway:
+    - Model-View-Controller (MVC)
+    - Model-View-Presenter (MVP)
+    - Different layouts in Android (Relative Layout, Linear Layout, Constraints Layout, etc.)
+    - [Website for all-things ConstriantLayout](https://constraintlayout.com)
+      - Get started [here](https://constraintlayout.com/basics/create_constraint.html)
+      - Offers tutorials on how to work with ConstraintLayout, what properties such as `Constriant Bias`, `Margin`, `Padding`, and `Barrier` are
+- Week 5: April 25th
+  - Slides: [Week 5](https://slides.com/naruthkongurai/info448-android-w5) 
 
 ---
 
